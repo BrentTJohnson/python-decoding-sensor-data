@@ -1,5 +1,5 @@
 from house_info import HouseInfo
-from datetime import date
+from datetime import date, datetime
 
 
 class TemperatureData(HouseInfo):
