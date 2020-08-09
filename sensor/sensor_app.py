@@ -40,14 +40,14 @@ print(f"\tMaximum: {max(recs)}, Minimum: {min(recs)} temperatures")
 # Module 4 code here:
 humidity_data = HumidityData(data)
 recs = humidity_data.get_data_by_area(rec_area=test_area)
-print(f"\nHouse Humidity sensor records for area: {test_area} = {len(recs)}")
-print(f"\tAverage: {mean(recs)}")
+print(f"\nHouse Humidity sensor records for area {test_area} = {len(recs)}")
+print(f"\tAverage: {mean(recs)} humidity")
 
 recs = humidity_data.get_data_by_date(rec_date=test_date)
-print("\nHouse Humidity sensor records for date"
-" {} = {}".format(test_date.strftime("%m/%d/%y"), len(recs)))
+print("\nHouse Humidity sensor records for date:"
+      " {} = {}".format(test_date.strftime("%m/%d/%y"), len(recs)))
 print(f"\tAverage: {mean(recs)} humidity")
-# Module 5 code here:
+
 particle_data = ParticleData(data)
 recs = particle_data.get_data_by_area(rec_area=test_area)
 print(f"\nHouse Particle sensor records for area {test_area} = {len(recs)}")
@@ -58,5 +58,11 @@ print(f"\tModerate Air Quality Recs: {concentrations['moderate']}")
 print(f"\tBad Air Quality Recs: {concentrations['bad']}")
 
 recs = particle_data.get_data_by_date(rec_date=test_date)
-print("\nHouse Particle sensor records for date"
+print("\nHouse Particle sensor records for date:"
       " {} = {}".format(test_date.strftime("%m/%d/%y"), len(recs)))
+
+concentrations = particle_data.get_data_concentrations(data=recs)
+print(f"\tGood Air Quality Recs: {concentrations['good']}")
+print(f"\tModerate Air Quality Recs: {concentrations['moderate']}")
+print(f"\tBad Air Quality Recs: {concentrations['bad']}")
+# Module 5 code here:
